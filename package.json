@@ -1,0 +1,52 @@
+{
+  "name": "egg-host",
+  "version": "1.0.0",
+  "description": "host plugin for egg, support modify the host.",
+  "eggPlugin": {
+    "name": "host"
+  },
+  "files": [
+    "lib",
+    "app.js",
+    "agent.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:eggjs/egg-host.git"
+  },
+  "keywords": [
+    "egg",
+    "plugin",
+    "host"
+  ],
+  "dependencies": {
+    "dns-hijacking": "^1.0.1"
+  },
+  "devDependencies": {
+    "autod": "^2.7.0",
+    "egg": "test",
+    "egg-bin": "^1.2.0",
+    "egg-ci": "^1.0.3",
+    "egg-mock": "*",
+    "eslint": "^3.2.2",
+    "eslint-config-egg": "^3.1.0",
+    "should": "^11.0.0",
+    "supertest": "^2.0.0",
+    "urllib": "^2.16.0"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+    "test": "npm run lint && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint --ext js . --fix",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod"
+  },
+  "ci": {
+    "version": "4, 6"
+  },
+  "author": "ngot"
+}
