@@ -24,15 +24,15 @@
     "dns-hijacking": "^1.0.1"
   },
   "devDependencies": {
-    "autod": "^2.7.0",
-    "egg": "test",
-    "egg-bin": "^1.2.0",
-    "egg-ci": "^1.0.3",
-    "egg-mock": "*",
-    "eslint": "^3.2.2",
-    "eslint-config-egg": "^3.1.0",
+    "autod": "^2.8.0",
+    "egg": "^1.0.0",
+    "egg-bin": "^3.1.0",
+    "egg-ci": "^1.6.0",
+    "egg-mock": "^3.2.0",
+    "eslint": "^3.18.0",
+    "eslint-config-egg": "^3.2.0",
     "should": "^11.0.0",
-    "supertest": "^2.0.0",
+    "supertest": "^3.0.0",
     "urllib": "^2.16.0"
   },
   "engines": {

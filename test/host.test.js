@@ -7,39 +7,40 @@ const request = require('supertest');
 
 describe('test/host.test.js', () => {
   let app;
-  before(done => {
+  before(() => {
     server.listen(8000);
     app = mm.cluster({
       baseDir: 'host-app',
       coverage: false,
     });
-    app.ready(done);
+    return app.ready();
   });
+
   after(() => server.close());
 
-  it('should support agent', done => {
-    request(app.callback())
+  it('should support agent', () => {
+    return request(app.callback())
       .get('/agent')
       .expect('local server')
-      .expect(200, done);
+      .expect(200);
   });
 
-  it('should support worker', done => {
-    request(app.callback())
+  it('should support worker', () => {
+    return request(app.callback())
       .get('/worker')
-      .expect('local server')
-      .expect(200, done);
+      .expect(200)
+      .expect('local server');
   });
 
-  it('should support agent & worker', done => {
-    request(app.callback())
+  it('should support agent & worker', function* () {
+    yield request(app.callback())
       .get('/worker')
       .expect('local server')
-      .expect(200, () => {
-        request(app.callback())
-          .get('/agent')
-          .expect('local server')
-          .expect(200, done);
-      });
+      .expect(200);
+
+    yield request(app.callback())
+      .get('/agent')
+      .expect('local server')
+      .expect(200);
   });
 });

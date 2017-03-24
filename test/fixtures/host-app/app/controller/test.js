@@ -1,10 +1,9 @@
 'use strict';
 
-const urllib = require('urllib');
-
 module.exports = {
   * worker() {
-    this.body = (yield urllib.requestThunk('http://eggjs.org:8000')).data;
+    const res = yield this.curl('http://eggjs.org:8000');
+    this.body = res.data.toString();
   },
   * agent() {
     this.body = yield callAgent(this);

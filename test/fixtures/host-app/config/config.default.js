@@ -6,3 +6,5 @@ exports.host = {
   },
   mode: 'both',
 };
+
+exports.keys = '123';
